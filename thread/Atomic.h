@@ -1,17 +1,17 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (giantchen at gmail dot com)
 
-#ifndef MUDUO_BASE_ATOMIC_H
-#define MUDUO_BASE_ATOMIC_H
+#ifndef xihoo_BASE_ATOMIC_H
+#define xihoo_BASE_ATOMIC_H
 
 #include <boost/noncopyable.hpp>
 #include <stdint.h>
 
-namespace muduo
+namespace xihoo
 {
 
 namespace detail
@@ -86,5 +86,5 @@ typedef detail::AtomicIntegerT<int32_t> AtomicInt32;
 typedef detail::AtomicIntegerT<int64_t> AtomicInt64;
 }
 
-#endif  // MUDUO_BASE_ATOMIC_H
+#endif  // xihoo_BASE_ATOMIC_H
 

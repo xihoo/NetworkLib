@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -15,7 +15,7 @@
 #include <sys/types.h>
 #include <linux/unistd.h>
 
-namespace muduo
+namespace xihoo
 {
 namespace CurrentThread
 {
@@ -35,7 +35,7 @@ pid_t gettid()
 void afterFork()
 {
   t_cachedTid = gettid();
-  muduo::CurrentThread::t_threadName = "main";
+  xihoo::CurrentThread::t_threadName = "main";
   // no need to call pthread_atfork(NULL, NULL, &afterFork);
 }
 
@@ -44,7 +44,7 @@ class ThreadNameInitializer
  public:
   ThreadNameInitializer()
   {
-    muduo::CurrentThread::t_threadName = "main";
+    xihoo::CurrentThread::t_threadName = "main";
     pthread_atfork(NULL, NULL, &afterFork);
   }
 };
@@ -53,7 +53,7 @@ ThreadNameInitializer init;
 
 struct ThreadData
 {
-  typedef muduo::Thread::ThreadFunc ThreadFunc;
+  typedef xihoo::Thread::ThreadFunc ThreadFunc;
   ThreadFunc func_;
   std::string name_;
   boost::weak_ptr<pid_t> wkTid_;
@@ -68,7 +68,7 @@ struct ThreadData
 
   void runInThread()
   {
-    pid_t tid = muduo::CurrentThread::tid();
+    pid_t tid = xihoo::CurrentThread::tid();
     boost::shared_ptr<pid_t> ptid = wkTid_.lock();
 
     if (ptid)
@@ -77,10 +77,10 @@ struct ThreadData
       ptid.reset();
     }
 
-    muduo::CurrentThread::t_threadName = name_.empty() ? "muduoThread" : name_.c_str();
-    ::prctl(PR_SET_NAME, muduo::CurrentThread::t_threadName);
-    func_(); // FIXME: surround with try-catch, see muduo
-    muduo::CurrentThread::t_threadName = "finished";
+    xihoo::CurrentThread::t_threadName = name_.empty() ? "xihooThread" : name_.c_str();
+    ::prctl(PR_SET_NAME, xihoo::CurrentThread::t_threadName);
+    func_(); // FIXME: surround with try-catch, see xihoo
+    xihoo::CurrentThread::t_threadName = "finished";
   }
 };
 
@@ -94,7 +94,7 @@ void* startThread(void* obj)
 
 }
 
-using namespace muduo;
+using namespace xihoo;
 
 pid_t CurrentThread::tid()
 {

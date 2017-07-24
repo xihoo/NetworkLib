@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (giantchen at gmail dot com)
 
-#ifndef MUDUO_BASE_THREAD_H
-#define MUDUO_BASE_THREAD_H
+#ifndef xihoo_BASE_THREAD_H
+#define xihoo_BASE_THREAD_H
 
 #include "Atomic.h"
 
@@ -15,7 +15,7 @@
 #include <boost/shared_ptr.hpp>
 #include <pthread.h>
 
-namespace muduo
+namespace xihoo
 {
 
 class Thread : boost::noncopyable

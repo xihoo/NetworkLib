@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (giantchen at gmail dot com)
 
-#ifndef MUDUO_BASE_CONDITION_H
-#define MUDUO_BASE_CONDITION_H
+#ifndef xihoo_BASE_CONDITION_H
+#define xihoo_BASE_CONDITION_H
 
 #include "Mutex.h"
 
@@ -14,7 +14,7 @@
 #include <pthread.h>
 #include <errno.h>
 
-namespace muduo
+namespace xihoo
 {
 
 class Condition : boost::noncopyable
@@ -60,5 +60,5 @@ class Condition : boost::noncopyable
 };
 
 }
-#endif  // MUDUO_BASE_CONDITION_H
+#endif  // xihoo_BASE_CONDITION_H
 

@@ -11,7 +11,7 @@
 using namespace std;
 
 
-void onRequest(const muduo::HttpRequest& req, HttpResponse* resp)
+void onRequest(const xihoo::HttpRequest& req, HttpResponse* resp)
 {
     string path="/root/index.html";
     //string extent=Util::GetExtent(path);
@@ -38,11 +38,11 @@ int main(int argc, char* argv[])
     if (argc > 1)
     {
     //benchmark = true;
-        muduo::Logger::setLogLevel(muduo::Logger::WARN);
+        xihoo::Logger::setLogLevel(xihoo::Logger::WARN);
         numThreads = atoi(argv[1]);
     }
-    muduo::EventLoop loop;
-    muduo::HttpServer server(&loop, muduo::InetAddress(8000) );
+    xihoo::EventLoop loop;
+    xihoo::HttpServer server(&loop, xihoo::InetAddress(8000) );
     server.setHttpCallback(onRequest);
     server.setThreadNum(numThreads);
     server.start();
