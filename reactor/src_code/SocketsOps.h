@@ -1,13 +1,3 @@
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-//
-// This is an internal header file, you should not include this.
-
 #ifndef xihoo_NET_SOCKETSOPS_H
 #define xihoo_NET_SOCKETSOPS_H
 
@@ -49,9 +39,7 @@ inline uint16_t networkToHost16(uint16_t net16)
   return ntohs(net16);
 }
 
-///
-/// Creates a non-blocking socket file descriptor,
-/// abort if any error.
+
 int createNonblockingOrDie();
 
 int  connect(int sockfd, const struct sockaddr_in& addr);
@@ -75,4 +63,4 @@ bool isSelfConnect(int sockfd);
 }
 }
 
-#endif  // xihoo_NET_SOCKETSOPS_H
+#endif 

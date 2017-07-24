@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #include "Connector.h"
 
@@ -41,7 +36,7 @@ Connector::~Connector()
 void Connector::start()
 {
   connect_ = true;
-  loop_->runInLoop(boost::bind(&Connector::startInLoop, this)); // FIXME: unsafe
+  loop_->runInLoop(boost::bind(&Connector::startInLoop, this)); 
 }
 
 void Connector::startInLoop()
@@ -94,7 +89,6 @@ void Connector::connect()
     default:
       LOG_SYSERR << "Unexpected error in Connector::startInLoop " << savedErrno;
       sockets::close(sockfd);
-      // connectErrorCallback_();
       break;
   }
 }
@@ -120,12 +114,9 @@ void Connector::connecting(int sockfd)
   assert(!channel_);
   channel_.reset(new Channel(loop_, sockfd));
   channel_->setWriteCallback(
-      boost::bind(&Connector::handleWrite, this)); // FIXME: unsafe
+      boost::bind(&Connector::handleWrite, this)); 
   channel_->setErrorCallback(
-      boost::bind(&Connector::handleError, this)); // FIXME: unsafe
-
-  // channel_->tie(shared_from_this()); is not working,
-  // as channel_ is not managed by shared_ptr
+      boost::bind(&Connector::handleError, this)); 
   channel_->enableWriting();
 }
 
@@ -134,8 +125,7 @@ int Connector::removeAndResetChannel()
   channel_->disableAll();
   loop_->removeChannel(get_pointer(channel_));
   int sockfd = channel_->fd();
-  // Can't reset channel_ here, because we are inside Channel::handleEvent
-  loop_->queueInLoop(boost::bind(&Connector::resetChannel, this)); // FIXME: unsafe
+  loop_->queueInLoop(boost::bind(&Connector::resetChannel, this)); 
   return sockfd;
 }
 

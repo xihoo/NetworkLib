@@ -1,9 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #ifndef xihoo_NET_CALLBACKS_H
 #define xihoo_NET_CALLBACKS_H
@@ -16,7 +10,7 @@
 namespace xihoo
 {
 
-// All client visible callbacks go here.
+
 
 class Buffer;
 class TcpConnection;
@@ -32,4 +26,4 @@ typedef boost::function<void (const TcpConnectionPtr&)> CloseCallback;
 
 }
 
-#endif  // xihoo_NET_CALLBACKS_H
+#endif 

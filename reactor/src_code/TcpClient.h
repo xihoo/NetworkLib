@@ -1,10 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #ifndef xihoo_NET_TCPCLIENT_H
 #define xihoo_NET_TCPCLIENT_H
 
@@ -24,7 +17,7 @@ class TcpClient : boost::noncopyable
  public:
   TcpClient(EventLoop* loop,
             const InetAddress& serverAddr);
-  ~TcpClient();  // force out-line dtor, for scoped_ptr members.
+  ~TcpClient();  
 
   void connect();
   void disconnect();
@@ -39,40 +32,37 @@ class TcpClient : boost::noncopyable
   bool retry() const;
   void enableRetry() { retry_ = true; }
 
-  /// Set connection callback.
-  /// Not thread safe.
+
   void setConnectionCallback(const ConnectionCallback& cb)
   { connectionCallback_ = cb; }
 
-  /// Set message callback.
-  /// Not thread safe.
+
   void setMessageCallback(const MessageCallback& cb)
   { messageCallback_ = cb; }
 
-  /// Set write complete callback.
-  /// Not thread safe.
+
   void setWriteCompleteCallback(const WriteCompleteCallback& cb)
   { writeCompleteCallback_ = cb; }
 
  private:
-  /// Not thread safe, but in loop
+
   void newConnection(int sockfd);
-  /// Not thread safe, but in loop
+
   void removeConnection(const TcpConnectionPtr& conn);
 
   EventLoop* loop_;
-  ConnectorPtr connector_; // avoid revealing Connector
+  ConnectorPtr connector_; 
   ConnectionCallback connectionCallback_;
   MessageCallback messageCallback_;
   WriteCompleteCallback writeCompleteCallback_;
-  bool retry_;   // atmoic
-  bool connect_; // atomic
-  // always in loop thread
+  bool retry_;   
+  bool connect_; 
+  
   int nextConnId_;
   mutable MutexLock mutex_;
-  TcpConnectionPtr connection_; // @BuardedBy mutex_
+  TcpConnectionPtr connection_; 
 };
 
 }
 
-#endif  // xihoo_NET_TCPCLIENT_H
+#endif  

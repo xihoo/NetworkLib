@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #ifndef xihoo_NET_TCPCONNECTION_H
 #define xihoo_NET_TCPCONNECTION_H
@@ -25,16 +20,12 @@ class Channel;
 class EventLoop;
 class Socket;
 
-///
-/// TCP connection, for both client and server usage.
-///
+
 class TcpConnection : boost::noncopyable,
                       public boost::enable_shared_from_this<TcpConnection>
 {
  public:
-  /// Constructs a TcpConnection with a connected sockfd
-  ///
-  /// User should not create this object.
+
   TcpConnection(EventLoop* loop,
                 const std::string& name,
                 int sockfd,
@@ -48,14 +39,10 @@ class TcpConnection : boost::noncopyable,
   const InetAddress& peerAddress() { return peerAddr_; }
   bool connected() const { return state_ == kConnected; }
 
-  //void send(const void* message, size_t len);
-  // Thread safe.
+
   void send(const std::string& message);
   void send(Buffer* message);
-  // Thread safe.
 
-//void sendInLoop(const StringPiece& message);
-  //void sendInLoop(const void* message, size_t len);
   void shutdown();
   void setTcpNoDelay(bool on);
 
@@ -68,15 +55,13 @@ class TcpConnection : boost::noncopyable,
   void setWriteCompleteCallback(const WriteCompleteCallback& cb)
   { writeCompleteCallback_ = cb; }
 
-  /// Internal use only.
+ 
   void setCloseCallback(const CloseCallback& cb)
   { closeCallback_ = cb; }
 
-  // called when TcpServer accepts a new connection
-  void connectEstablished();   // should be called only once
-  // called when TcpServer has removed me from its map
-  void connectDestroyed();  // should be called only once
-
+  
+  void connectEstablished();   
+  void connectDestroyed();  
 void setContext(const boost::any& context)
   { context_ = context; }
 boost::any* getMutableContext()
@@ -97,8 +82,7 @@ boost::any* getMutableContext()
 
   EventLoop* loop_;
   std::string name_;
-  StateE state_;  // FIXME: use atomic variable
-  // we don't expose those classes to client.
+  StateE state_;  
   boost::scoped_ptr<Socket> socket_;
   boost::scoped_ptr<Channel> channel_;
   InetAddress localAddr_;
@@ -116,4 +100,4 @@ typedef boost::shared_ptr<TcpConnection> TcpConnectionPtr;
 
 }
 
-#endif  // xihoo_NET_TCPCONNECTION_H
+#endif  

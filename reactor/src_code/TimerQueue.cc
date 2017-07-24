@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #define __STDC_LIMIT_MACROS
 #include "TimerQueue.h"
@@ -63,7 +58,7 @@ void readTimerfd(int timerfd, Timestamp now)
 
 void resetTimerfd(int timerfd, Timestamp expiration)
 {
-  // wake up loop by timerfd_settime()
+  
   struct itimerspec newValue;
   struct itimerspec oldValue;
   bzero(&newValue, sizeof newValue);
@@ -91,14 +86,13 @@ TimerQueue::TimerQueue(EventLoop* loop)
 {
   timerfdChannel_.setReadCallback(
       boost::bind(&TimerQueue::handleRead, this));
-  // we are always reading the timerfd, we disarm it with timerfd_settime.
+  
   timerfdChannel_.enableReading();
 }
 
 TimerQueue::~TimerQueue()
 {
   ::close(timerfd_);
-  // do not remove channel, since we're in EventLoop::dtor();
   for (TimerList::iterator it = timers_.begin();
       it != timers_.end(); ++it)
   {
@@ -143,7 +137,7 @@ void TimerQueue::cancelInLoop(TimerId timerId)
   {
     size_t n = timers_.erase(Entry(it->first->expiration(), it->first));
     assert(n == 1); (void)n;
-    delete it->first; // FIXME: no delete please
+    delete it->first; 
     activeTimers_.erase(it);
   }
   else if (callingExpiredTimers_)
@@ -163,7 +157,7 @@ void TimerQueue::handleRead()
 
   callingExpiredTimers_ = true;
   cancelingTimers_.clear();
-  // safe to callback outside critical section
+  
   for (std::vector<Entry>::iterator it = expired.begin();
       it != expired.end(); ++it)
   {
@@ -211,7 +205,6 @@ void TimerQueue::reset(const std::vector<Entry>& expired, Timestamp now)
     }
     else
     {
-      // FIXME move to a free list
       delete it->second;
     }
   }

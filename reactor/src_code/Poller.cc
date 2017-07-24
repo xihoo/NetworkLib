@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #include "Poller.h"
 
@@ -26,7 +21,7 @@ Poller::~Poller()
 
 Timestamp Poller::poll(int timeoutMs, ChannelList* activeChannels)
 {
-  // XXX pollfds_ shouldn't change
+  
   int numEvents = ::poll(&*pollfds_.begin(), pollfds_.size(), timeoutMs);
   Timestamp now(Timestamp::now());
   if (numEvents > 0) {
@@ -54,7 +49,7 @@ void Poller::fillActiveChannels(int numEvents,
       Channel* channel = ch->second;
       assert(channel->fd() == pfd->fd);
       channel->set_revents(pfd->revents);
-      // pfd->revents = 0;
+      
       activeChannels->push_back(channel);
     }
   }
@@ -65,7 +60,7 @@ void Poller::updateChannel(Channel* channel)
   assertInLoopThread();
   LOG_TRACE << "fd = " << channel->fd() << " events = " << channel->events();
   if (channel->index() < 0) {
-    // a new one, add to pollfds_
+   
     assert(channels_.find(channel->fd()) == channels_.end());
     struct pollfd pfd;
     pfd.fd = channel->fd();
@@ -76,7 +71,7 @@ void Poller::updateChannel(Channel* channel)
     channel->set_index(idx);
     channels_[pfd.fd] = channel;
   } else {
-    // update existing one
+    
     assert(channels_.find(channel->fd()) != channels_.end());
     assert(channels_[channel->fd()] == channel);
     int idx = channel->index();
@@ -86,7 +81,7 @@ void Poller::updateChannel(Channel* channel)
     pfd.events = static_cast<short>(channel->events());
     pfd.revents = 0;
     if (channel->isNoneEvent()) {
-      // ignore this pollfd
+      
       pfd.fd = -channel->fd()-1;
     }
   }

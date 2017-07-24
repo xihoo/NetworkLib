@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #include "TcpClient.h"
 
@@ -19,16 +14,7 @@
 
 using namespace xihoo;
 
-// TcpClient::TcpClient(EventLoop* loop)
-//   : loop_(loop)
-// {
-// }
 
-// TcpClient::TcpClient(EventLoop* loop, const string& host, uint16_t port)
-//   : loop_(CHECK_NOTNULL(loop)),
-//     serverAddr_(host, port)
-// {
-// }
 
 namespace xihoo
 {
@@ -42,7 +28,7 @@ void removeConnection(EventLoop* loop, const TcpConnectionPtr& conn)
 
 void removeConnector(const ConnectorPtr& connector)
 {
-  //connector->
+ 
 }
 
 }
@@ -58,7 +44,7 @@ TcpClient::TcpClient(EventLoop* loop,
 {
   connector_->setNewConnectionCallback(
       boost::bind(&TcpClient::newConnection, this, _1));
-  // FIXME setConnectFailedCallback
+  
   LOG_INFO << "TcpClient::TcpClient[" << this
            << "] - connector " << get_pointer(connector_);
 }
@@ -74,7 +60,7 @@ TcpClient::~TcpClient()
   }
   if (conn)
   {
-    // FIXME: not 100% safe, if we are in different thread
+    
     CloseCallback cb = boost::bind(&detail::removeConnection, loop_, _1);
     loop_->runInLoop(
         boost::bind(&TcpConnection::setCloseCallback, conn, cb));
@@ -82,14 +68,14 @@ TcpClient::~TcpClient()
   else
   {
     connector_->stop();
-    // FIXME: HACK
+    
     loop_->runAfter(1, boost::bind(&detail::removeConnector, connector_));
   }
 }
 
 void TcpClient::connect()
 {
-  // FIXME: check state
+  
   LOG_INFO << "TcpClient::connect[" << this << "] - connecting to "
            << connector_->serverAddress().toHostPort();
   connect_ = true;
@@ -125,8 +111,7 @@ void TcpClient::newConnection(int sockfd)
   string connName = buf;
 
   InetAddress localAddr(sockets::getLocalAddr(sockfd));
-  // FIXME poll with zero timeout to double confirm the new connection
-  // FIXME use make_shared if necessary
+  
   TcpConnectionPtr conn(new TcpConnection(loop_,
                                           connName,
                                           sockfd,

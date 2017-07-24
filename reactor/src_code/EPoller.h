@@ -1,10 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #ifndef xihoo_NET_EPOLLER_H
 #define xihoo_NET_EPOLLER_H
 
@@ -20,11 +13,6 @@ namespace xihoo
 {
 
 class Channel;
-
-///
-/// IO Multiplexing with epoll(4).
-///
-/// This class doesn't own the Channel objects.
 class EPoller : boost::noncopyable
 {
  public:
@@ -33,15 +21,8 @@ class EPoller : boost::noncopyable
   EPoller(EventLoop* loop);
   ~EPoller();
 
-  /// Polls the I/O events.
-  /// Must be called in the loop thread.
   Timestamp poll(int timeoutMs, ChannelList* activeChannels);
-
-  /// Changes the interested I/O events.
-  /// Must be called in the loop thread.
   void updateChannel(Channel* channel);
-  /// Remove the channel, when it destructs.
-  /// Must be called in the loop thread.
   void removeChannel(Channel* channel);
 
   void assertInLoopThread() { ownerLoop_->assertInLoopThread(); }
@@ -63,4 +44,4 @@ class EPoller : boost::noncopyable
 };
 
 }
-#endif  // xihoo_NET_EPOLLER_H
+#endif  

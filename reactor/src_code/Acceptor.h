@@ -1,9 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #ifndef xihoo_NET_ACCEPTOR_H
 #define xihoo_NET_ACCEPTOR_H
@@ -20,9 +14,8 @@ namespace xihoo
 class EventLoop;
 class InetAddress;
 
-///
-/// Acceptor of incoming TCP connections.
-///
+
+
 class Acceptor : boost::noncopyable
 {
  public:
@@ -49,4 +42,4 @@ class Acceptor : boost::noncopyable
 
 }
 
-#endif  // xihoo_NET_ACCEPTOR_H
+#endif  

@@ -1,18 +1,11 @@
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #include "SocketsOps.h"
 #include "logging/Logging.h"
 
 #include <errno.h>
 #include <fcntl.h>
-#include <stdio.h>  // snprintf
-#include <strings.h>  // bzero
+#include <stdio.h> 
+#include <strings.h>  
 #include <sys/socket.h>
 #include <unistd.h>
 

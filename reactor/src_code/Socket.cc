@@ -1,10 +1,4 @@
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
 
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #include "Socket.h"
 
@@ -13,7 +7,7 @@
 
 #include <netinet/in.h>
 #include <netinet/tcp.h>
-#include <strings.h>  // bzero
+#include <strings.h>  
 
 using namespace xihoo;
 
@@ -49,7 +43,7 @@ void Socket::setReuseAddr(bool on)
   int optval = on ? 1 : 0;
   ::setsockopt(sockfd_, SOL_SOCKET, SO_REUSEADDR,
                &optval, sizeof optval);
-  // FIXME CHECK
+ 
 }
 
 void Socket::shutdownWrite()
@@ -62,6 +56,6 @@ void Socket::setTcpNoDelay(bool on)
   int optval = on ? 1 : 0;
   ::setsockopt(sockfd_, IPPROTO_TCP, TCP_NODELAY,
                &optval, sizeof optval);
-  // FIXME CHECK
+ 
 }
 

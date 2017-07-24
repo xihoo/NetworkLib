@@ -1,9 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
 
 #ifndef xihoo_NET_EVENTLOOPTHREADPOOL_H
 #define xihoo_NET_EVENTLOOPTHREADPOOL_H
@@ -37,11 +31,11 @@ class EventLoopThreadPool : boost::noncopyable
   EventLoop* baseLoop_;
   bool started_;
   int numThreads_;
-  int next_;  // always in loop thread
+  int next_;  
   boost::ptr_vector<EventLoopThread> threads_;
   std::vector<EventLoop*> loops_;
 };
 
 }
 
-#endif  // xihoo_NET_EVENTLOOPTHREADPOOL_H
+#endif  

@@ -1,10 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #ifndef xihoo_NET_BUFFER_H
 #define xihoo_NET_BUFFER_H
 
@@ -19,17 +12,6 @@
 
 namespace xihoo
 {
-
-/// A buffer class modeled after org.jboss.netty.buffer.ChannelBuffer
-///
-/// @code
-/// +-------------------+------------------+------------------+
-/// | prependable bytes |  readable bytes  |  writable bytes  |
-/// |                   |     (CONTENT)    |                  |
-/// +-------------------+------------------+------------------+
-/// |                   |                  |                  |
-/// 0      <=      readerIndex   <=   writerIndex    <=     size
-/// @endcode
 class Buffer : public xihoo::copyable
 {
  public:
@@ -66,10 +48,6 @@ class Buffer : public xihoo::copyable
 
   const char* peek() const
   { return begin() + readerIndex_; }
-
-  // retrieve returns void, to prevent
-  // string str(retrieve(readableBytes()), readableBytes());
-  // the evaluation of two functions are unspecified
   void retrieve(size_t len)
   {
     assert(len <= readableBytes());
@@ -152,15 +130,12 @@ class Buffer : public xihoo::copyable
    buf.swap(buffer_);
   }
 
-  /// Read data directly into buffer.
-  ///
-  /// It may implement with readv(2)
-  /// @return result of read(2), @c errno is saved
+
   ssize_t readFd(int fd, int* savedErrno);
 
 const char* findCRLF() const
   {
-    // FIXME: replace with memmem()?
+    
     const char* crlf = std::search(peek(), beginWrite(), kCRLF, kCRLF+2);
     return crlf == beginWrite() ? NULL : crlf;
   }
@@ -182,7 +157,6 @@ const char* findCRLF() const
     }
     else
     {
-      // move readable data to the front, make space inside buffer
       assert(kCheapPrepend < readerIndex_);
       size_t readable = readableBytes();
       std::copy(begin()+readerIndex_,
@@ -203,4 +177,4 @@ const char* findCRLF() const
 
 }
 
-#endif  // xihoo_NET_BUFFER_H
+#endif 

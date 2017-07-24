@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #ifndef xihoo_NET_TIMER_H
 #define xihoo_NET_TIMER_H
@@ -17,9 +12,6 @@
 namespace xihoo
 {
 
-///
-/// Internal class for timer event.
-///
 class Timer : boost::noncopyable
 {
  public:
@@ -54,4 +46,4 @@ class Timer : boost::noncopyable
 };
 
 }
-#endif  // xihoo_NET_TIMER_H
+#endif 

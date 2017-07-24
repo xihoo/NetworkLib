@@ -8,12 +8,10 @@
 #include <boost/bind.hpp>
 
 using namespace xihoo;
-//using namespace xihoo::net;
 
 namespace xihoo
 {
-//class HttpResponse;
-//class HttpRequest;
+
 namespace detail
 {
 

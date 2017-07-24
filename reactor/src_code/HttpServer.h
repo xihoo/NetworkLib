@@ -8,14 +8,6 @@
 
 namespace xihoo
 {
-
-//class HttpRequest;
-//class HttpResponse;
-
-/// A simple embeddable HTTP server designed for report status of a program.
-/// It is not a fully HTTP 1.1 compliant server, but provides minimum features
-/// that can communicate with HttpClient and Web browser.
-/// It is synchronous, just like Java Servlet.
 class HttpServer : boost::noncopyable
 {
  public:
@@ -25,11 +17,11 @@ class HttpServer : boost::noncopyable
   HttpServer(EventLoop* loop,
              const InetAddress& listenAddr);
 
-  ~HttpServer();  // force out-line dtor, for scoped_ptr members.
+  ~HttpServer();  
 
   EventLoop* getLoop() const { return server_.getloop(); }
 
-  /// Not thread safe, callback be registered before calling start().
+  
   void setHttpCallback(const HttpCallback& cb)
   {
     httpCallback_ = cb;
@@ -56,4 +48,4 @@ class HttpServer : boost::noncopyable
 
 }
 
-#endif  // xihoo_NET_HTTP_HTTPSERVER_H
+#endif  

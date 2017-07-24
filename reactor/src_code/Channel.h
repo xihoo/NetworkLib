@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #ifndef xihoo_NET_CHANNEL_H
 #define xihoo_NET_CHANNEL_H
@@ -18,12 +13,7 @@ namespace xihoo
 
 class EventLoop;
 
-///
-/// A selectable I/O channel.
-///
-/// This class doesn't own the file descriptor.
-/// The file descriptor could be a socket,
-/// an eventfd, a timerfd, or a signalfd
+
 class Channel : boost::noncopyable
 {
  public:
@@ -71,7 +61,7 @@ class Channel : boost::noncopyable
   const int  fd_;
   int        events_;
   int        revents_;
-  int        index_; // used by Poller.
+  int        index_; 
 
   bool eventHandling_;
 
@@ -82,4 +72,4 @@ class Channel : boost::noncopyable
 };
 
 }
-#endif  // xihoo_NET_CHANNEL_H
+#endif  

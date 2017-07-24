@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #ifndef xihoo_NET_CONNECTOR_H
 #define xihoo_NET_CONNECTOR_H
@@ -33,9 +28,9 @@ class Connector : boost::noncopyable
   void setNewConnectionCallback(const NewConnectionCallback& cb)
   { newConnectionCallback_ = cb; }
 
-  void start();  // can be called in any thread
-  void restart();  // must be called in loop thread
-  void stop();  // can be called in any thread
+  void start();  
+  void restart();  
+  void stop();  
 
   const InetAddress& serverAddress() const { return serverAddr_; }
 
@@ -56,8 +51,8 @@ class Connector : boost::noncopyable
 
   EventLoop* loop_;
   InetAddress serverAddr_;
-  bool connect_; // atomic
-  States state_;  // FIXME: use atomic variable
+  bool connect_; 
+  States state_;  
   boost::scoped_ptr<Channel> channel_;
   NewConnectionCallback newConnectionCallback_;
   int retryDelayMs_;
@@ -67,4 +62,4 @@ typedef boost::shared_ptr<Connector> ConnectorPtr;
 
 }
 
-#endif  // xihoo_NET_CONNECTOR_H
+#endif  

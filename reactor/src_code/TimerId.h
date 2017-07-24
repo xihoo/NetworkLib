@@ -1,10 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #ifndef xihoo_NET_TIMERID_H
 #define xihoo_NET_TIMERID_H
 
@@ -15,9 +8,7 @@ namespace xihoo
 
 class Timer;
 
-///
-/// An opaque identifier, for canceling Timer.
-///
+
 class TimerId : public xihoo::copyable
 {
  public:
@@ -27,7 +18,7 @@ class TimerId : public xihoo::copyable
   {
   }
 
-  // default copy-ctor, dtor and assignment are okay
+ 
 
   friend class TimerQueue;
 
@@ -38,4 +29,4 @@ class TimerId : public xihoo::copyable
 
 }
 
-#endif  // xihoo_NET_TIMERID_H
+#endif 

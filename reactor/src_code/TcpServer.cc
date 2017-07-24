@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #include "TcpServer.h"
 
@@ -15,7 +10,7 @@
 
 #include <boost/bind.hpp>
 
-#include <stdio.h>  // snprintf
+#include <stdio.h> 
 
 using namespace xihoo;
 
@@ -68,7 +63,7 @@ void TcpServer::newConnection(int sockfd, const InetAddress& peerAddr)
            << "] - new connection [" << connName
            << "] from " << peerAddr.toHostPort();
   InetAddress localAddr(sockets::getLocalAddr(sockfd));
-  // FIXME poll with zero timeout to double confirm the new connection
+  
   EventLoop* ioLoop = threadPool_->getNextLoop();
   TcpConnectionPtr conn(
       new TcpConnection(ioLoop, connName, sockfd, localAddr, peerAddr));
@@ -77,13 +72,13 @@ void TcpServer::newConnection(int sockfd, const InetAddress& peerAddr)
   conn->setMessageCallback(messageCallback_);
   conn->setWriteCompleteCallback(writeCompleteCallback_);
   conn->setCloseCallback(
-      boost::bind(&TcpServer::removeConnection, this, _1)); // FIXME: unsafe
+      boost::bind(&TcpServer::removeConnection, this, _1)); 
   ioLoop->runInLoop(boost::bind(&TcpConnection::connectEstablished, conn));
 }
 
 void TcpServer::removeConnection(const TcpConnectionPtr& conn)
 {
-  // FIXME: unsafe
+  
   loop_->runInLoop(boost::bind(&TcpServer::removeConnectionInLoop, this, conn));
 }
 

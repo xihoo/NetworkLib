@@ -1,10 +1,3 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #ifndef xihoo_NET_TIMERQUEUE_H
 #define xihoo_NET_TIMERQUEUE_H
 
@@ -24,22 +17,11 @@ namespace xihoo
 class EventLoop;
 class Timer;
 class TimerId;
-
-///
-/// A best efforts timer queue.
-/// No guarantee that the callback will be on time.
-///
 class TimerQueue : boost::noncopyable
 {
  public:
   TimerQueue(EventLoop* loop);
   ~TimerQueue();
-
-  ///
-  /// Schedules the callback to be run at given time,
-  /// repeats if @c interval > 0.0.
-  ///
-  /// Must be thread safe. Usually be called from other threads.
   TimerId addTimer(const TimerCallback& cb,
                    Timestamp when,
                    double interval);
@@ -48,7 +30,6 @@ class TimerQueue : boost::noncopyable
 
  private:
 
-  // FIXME: use unique_ptr<Timer> instead of raw pointers.
   typedef std::pair<Timestamp, Timer*> Entry;
   typedef std::set<Entry> TimerList;
   typedef std::pair<Timer*, int64_t> ActiveTimer;
@@ -56,9 +37,9 @@ class TimerQueue : boost::noncopyable
 
   void addTimerInLoop(Timer* timer);
   void cancelInLoop(TimerId timerId);
-  // called when timerfd alarms
+  
   void handleRead();
-  // move out all expired timers
+ 
   std::vector<Entry> getExpired(Timestamp now);
   void reset(const std::vector<Entry>& expired, Timestamp now);
 
@@ -67,14 +48,12 @@ class TimerQueue : boost::noncopyable
   EventLoop* loop_;
   const int timerfd_;
   Channel timerfdChannel_;
-  // Timer list sorted by expiration
-  TimerList timers_;
 
-  // for cancel()
-  bool callingExpiredTimers_; /* atomic */
+  TimerList timers_;
+  bool callingExpiredTimers_; 
   ActiveTimerSet activeTimers_;
   ActiveTimerSet cancelingTimers_;
 };
 
 }
-#endif  // xihoo_NET_TIMERQUEUE_H
+#endif  

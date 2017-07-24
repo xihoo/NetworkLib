@@ -1,9 +1,4 @@
-// excerpts from http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-//
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
+
 
 #include "EventLoopThreadPool.h"
 
@@ -24,7 +19,7 @@ EventLoopThreadPool::EventLoopThreadPool(EventLoop* baseLoop)
 
 EventLoopThreadPool::~EventLoopThreadPool()
 {
-  // Don't delete loop, it's stack variable
+  
 }
 
 void EventLoopThreadPool::start()

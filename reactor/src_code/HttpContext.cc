@@ -2,7 +2,7 @@
 #include "HttpContext.h"
 
 using namespace xihoo;
-//using namespace xihoo::net;
+
 
 bool HttpContext::processRequestLine(const char* begin, const char* end)
 {
@@ -47,7 +47,7 @@ bool HttpContext::processRequestLine(const char* begin, const char* end)
   return succeed;
 }
 
-// return false if any error
+
 bool HttpContext::parseRequest(Buffer* buf, Timestamp receiveTime)
 {
   bool ok = true;
@@ -88,8 +88,7 @@ bool HttpContext::parseRequest(Buffer* buf, Timestamp receiveTime)
         }
         else
         {
-          // empty line, end of header
-          // FIXME:
+          
           state_ = kGotAll;
           hasMore = false;
         }
@@ -102,7 +101,7 @@ bool HttpContext::parseRequest(Buffer* buf, Timestamp receiveTime)
     }
     else if (state_ == kExpectBody)
     {
-      // FIXME:
+      
     }
   }
   return ok;

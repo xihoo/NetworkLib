@@ -1,32 +1,11 @@
-// Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/xihoo/
-//
-// Use of this source code is governed by a BSD-style license
-// that can be found in the License file.
-
-// Author: Shuo Chen (chenshuo at chenshuo dot com)
-
 #include "InetAddress.h"
 
 #include "SocketsOps.h"
 
-#include <strings.h>  // bzero
+#include <strings.h>  
 #include <netinet/in.h>
 
 #include <boost/static_assert.hpp>
-
-//     /* Structure describing an Internet socket address.  */
-//     struct sockaddr_in {
-//         sa_family_t    sin_family; /* address family: AF_INET */
-//         uint16_t       sin_port;   /* port in network byte order */
-//         struct in_addr sin_addr;   /* internet address */
-//     };
-
-//     /* Internet address. */
-//     typedef uint32_t in_addr_t;
-//     struct in_addr {
-//         in_addr_t       s_addr;     /* address in network byte order */
-//     };
 
 using namespace xihoo;
 
