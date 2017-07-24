@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_EPOLLER_H
-#define MUDUO_NET_EPOLLER_H
+#ifndef xihoo_NET_EPOLLER_H
+#define xihoo_NET_EPOLLER_H
 
 #include <map>
 #include <vector>
@@ -16,7 +16,7 @@
 
 struct epoll_event;
 
-namespace muduo
+namespace xihoo
 {
 
 class Channel;
@@ -63,4 +63,4 @@ class EPoller : boost::noncopyable
 };
 
 }
-#endif  // MUDUO_NET_EPOLLER_H
+#endif  // xihoo_NET_EPOLLER_H

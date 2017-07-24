@@ -1,5 +1,5 @@
-#ifndef MUDUO_NET_HTTP_HTTPREQUEST_H
-#define MUDUO_NET_HTTP_HTTPREQUEST_H
+#ifndef xihoo_NET_HTTP_HTTPREQUEST_H
+#define xihoo_NET_HTTP_HTTPREQUEST_H
 
 #include "datetime/copyable.h"
 #include "datetime/Timestamp.h"
@@ -9,10 +9,10 @@
 #include <assert.h>
 #include <stdio.h>
 using namespace std;
-namespace muduo
+namespace xihoo
 {
 
-class HttpRequest : public muduo::copyable
+class HttpRequest : public xihoo::copyable
 {
  public:
   enum Method
@@ -172,4 +172,4 @@ class HttpRequest : public muduo::copyable
 
 }
 
-#endif  // MUDUO_NET_HTTP_HTTPREQUEST_H
+#endif  // xihoo_NET_HTTP_HTTPREQUEST_H

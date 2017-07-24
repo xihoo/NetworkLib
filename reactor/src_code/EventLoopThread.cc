@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -11,7 +11,7 @@
 
 #include <boost/bind.hpp>
 
-using namespace muduo;
+using namespace xihoo;
 
 EventLoopThread::EventLoopThread()
   : loop_(NULL),

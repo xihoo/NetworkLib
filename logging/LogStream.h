@@ -1,12 +1,12 @@
-#ifndef MUDUO_BASE_LOGSTREAM_H
-#define MUDUO_BASE_LOGSTREAM_H
+#ifndef xihoo_BASE_LOGSTREAM_H
+#define xihoo_BASE_LOGSTREAM_H
 
 #include <assert.h>
 #include <string.h>
 #include <string>
 #include <boost/noncopyable.hpp>
 
-namespace muduo
+namespace xihoo
 {
 
 using std::string;
@@ -180,6 +180,6 @@ inline LogStream& operator<<(LogStream& s, const Fmt& fmt)
 }
 
 }
-#endif  // MUDUO_BASE_LOGSTREAM_H
+#endif  // xihoo_BASE_LOGSTREAM_H
 
 

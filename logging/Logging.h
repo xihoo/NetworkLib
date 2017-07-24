@@ -1,11 +1,11 @@
-#ifndef MUDUO_BASE_LOGGING_H
-#define MUDUO_BASE_LOGGING_H
+#ifndef xihoo_BASE_LOGGING_H
+#define xihoo_BASE_LOGGING_H
 
 #include "LogStream.h"
 #include <datetime/Timestamp.h>
 #include <boost/scoped_ptr.hpp>
 
-namespace muduo
+namespace xihoo
 {
 
 class Logger
@@ -60,17 +60,17 @@ class Impl
 
 };
 
-#define LOG_TRACE if (muduo::Logger::logLevel() <= muduo::Logger::TRACE) \
-  muduo::Logger(__FILE__, __LINE__, muduo::Logger::TRACE, __func__).stream()
-#define LOG_DEBUG if (muduo::Logger::logLevel() <= muduo::Logger::DEBUG) \
-  muduo::Logger(__FILE__, __LINE__, muduo::Logger::DEBUG, __func__).stream()
-#define LOG_INFO if (muduo::Logger::logLevel() <= muduo::Logger::INFO) \
-  muduo::Logger(__FILE__, __LINE__).stream()
-#define LOG_WARN muduo::Logger(__FILE__, __LINE__, muduo::Logger::WARN).stream()
-#define LOG_ERROR muduo::Logger(__FILE__, __LINE__, muduo::Logger::ERROR).stream()
-#define LOG_FATAL muduo::Logger(__FILE__, __LINE__, muduo::Logger::FATAL).stream()
-#define LOG_SYSERR muduo::Logger(__FILE__, __LINE__, false).stream()
-#define LOG_SYSFATAL muduo::Logger(__FILE__, __LINE__, true).stream()
+#define LOG_TRACE if (xihoo::Logger::logLevel() <= xihoo::Logger::TRACE) \
+  xihoo::Logger(__FILE__, __LINE__, xihoo::Logger::TRACE, __func__).stream()
+#define LOG_DEBUG if (xihoo::Logger::logLevel() <= xihoo::Logger::DEBUG) \
+  xihoo::Logger(__FILE__, __LINE__, xihoo::Logger::DEBUG, __func__).stream()
+#define LOG_INFO if (xihoo::Logger::logLevel() <= xihoo::Logger::INFO) \
+  xihoo::Logger(__FILE__, __LINE__).stream()
+#define LOG_WARN xihoo::Logger(__FILE__, __LINE__, xihoo::Logger::WARN).stream()
+#define LOG_ERROR xihoo::Logger(__FILE__, __LINE__, xihoo::Logger::ERROR).stream()
+#define LOG_FATAL xihoo::Logger(__FILE__, __LINE__, xihoo::Logger::FATAL).stream()
+#define LOG_SYSERR xihoo::Logger(__FILE__, __LINE__, false).stream()
+#define LOG_SYSFATAL xihoo::Logger(__FILE__, __LINE__, true).stream()
 
 const char* strerror_tl(int savedErrno);
 
@@ -80,7 +80,7 @@ const char* strerror_tl(int savedErrno);
 // initializer lists.
 
 #define CHECK_NOTNULL(val) \
-  ::muduo::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
+  ::xihoo::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
 
 // A small helper for CHECK_NOTNULL().
 template <typename T>
@@ -98,5 +98,5 @@ inline To implicit_cast(From const &f) {
 
 }
 
-#endif  // MUDUO_BASE_LOGGING_H
+#endif  // xihoo_BASE_LOGGING_H
 

@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_TIMER_H
-#define MUDUO_NET_TIMER_H
+#ifndef xihoo_NET_TIMER_H
+#define xihoo_NET_TIMER_H
 
 #include <boost/noncopyable.hpp>
 
@@ -14,7 +14,7 @@
 #include "thread/Atomic.h"
 #include "Callbacks.h"
 
-namespace muduo
+namespace xihoo
 {
 
 ///
@@ -54,4 +54,4 @@ class Timer : boost::noncopyable
 };
 
 }
-#endif  // MUDUO_NET_TIMER_H
+#endif  // xihoo_NET_TIMER_H

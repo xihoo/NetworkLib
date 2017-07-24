@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -19,7 +19,7 @@
 #include <signal.h>
 #include <sys/eventfd.h>
 
-using namespace muduo;
+using namespace xihoo;
 
 __thread EventLoop* t_loopInThisThread = 0;
 const int kPollTimeMs = 10000;

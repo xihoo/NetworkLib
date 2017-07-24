@@ -1,12 +1,12 @@
-#ifndef MUDUO_NET_HTTP_HTTPSERVER_H
-#define MUDUO_NET_HTTP_HTTPSERVER_H
+#ifndef xihoo_NET_HTTP_HTTPSERVER_H
+#define xihoo_NET_HTTP_HTTPSERVER_H
 
 #include "TcpServer.h"
 #include <boost/noncopyable.hpp>
 #include "HttpRequest.h"
 #include "HttpResponse.h"
 
-namespace muduo
+namespace xihoo
 {
 
 //class HttpRequest;
@@ -56,4 +56,4 @@ class HttpServer : boost::noncopyable
 
 }
 
-#endif  // MUDUO_NET_HTTP_HTTPSERVER_H
+#endif  // xihoo_NET_HTTP_HTTPSERVER_H

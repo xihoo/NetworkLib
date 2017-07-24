@@ -9,7 +9,7 @@
 
 #include <sstream>
 
-namespace muduo
+namespace xihoo
 {
 
 /*
@@ -40,7 +40,7 @@ const char* strerror_tl(int savedErrno)
 
 Logger::LogLevel initLogLevel()
 {
-  if (::getenv("MUDUO_LOG_TRACE"))
+  if (::getenv("xihoo_LOG_TRACE"))
     return Logger::TRACE;
   else
     return Logger::DEBUG;
@@ -75,7 +75,7 @@ Logger::FlushFunc g_flush = defaultFlush;
 
 }
 
-using namespace muduo;
+using namespace xihoo;
 
 Logger::Impl::Impl(LogLevel level, int savedErrno, const char* file, int line)
   : time_(Timestamp::now()),

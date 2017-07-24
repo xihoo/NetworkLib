@@ -9,10 +9,10 @@
 #include <stdint.h>
 #include <stdio.h>
 
-using namespace muduo;
-using namespace muduo::detail;
+using namespace xihoo;
+using namespace xihoo::detail;
 
-namespace muduo
+namespace xihoo
 {
 namespace detail
 {

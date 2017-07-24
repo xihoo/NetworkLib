@@ -1,5 +1,5 @@
 // Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
+// http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -8,13 +8,13 @@
 //
 // This is an internal header file, you should not include this.
 
-#ifndef MUDUO_NET_SOCKETSOPS_H
-#define MUDUO_NET_SOCKETSOPS_H
+#ifndef xihoo_NET_SOCKETSOPS_H
+#define xihoo_NET_SOCKETSOPS_H
 
 #include <arpa/inet.h>
 #include <endian.h>
 
-namespace muduo
+namespace xihoo
 {
 namespace sockets
 {
@@ -75,4 +75,4 @@ bool isSelfConnect(int sockfd);
 }
 }
 
-#endif  // MUDUO_NET_SOCKETSOPS_H
+#endif  // xihoo_NET_SOCKETSOPS_H

@@ -39,7 +39,7 @@ int HttpResponse::cgi()const
     return cgi_;
 }
 
-void HttpResponse::appendToBuffer(muduo::Buffer* output,int cgi) const
+void HttpResponse::appendToBuffer(xihoo::Buffer* output,int cgi) const
 {
     char buf[32];
     //构造响应行

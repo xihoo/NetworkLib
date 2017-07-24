@@ -1,8 +1,8 @@
 #include "Buffer.h"
 #include "HttpContext.h"
 
-using namespace muduo;
-//using namespace muduo::net;
+using namespace xihoo;
+//using namespace xihoo::net;
 
 bool HttpContext::processRequestLine(const char* begin, const char* end)
 {

@@ -1,5 +1,5 @@
 // Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
+// http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -8,8 +8,8 @@
 //
 // This is a public header file, it must only include public header files.
 
-#ifndef MUDUO_NET_INETADDRESS_H
-#define MUDUO_NET_INETADDRESS_H
+#ifndef xihoo_NET_INETADDRESS_H
+#define xihoo_NET_INETADDRESS_H
 
 #include "datetime/copyable.h"
 
@@ -17,14 +17,14 @@
 
 #include <netinet/in.h>
 
-namespace muduo
+namespace xihoo
 {
 
 ///
 /// Wrapper of sockaddr_in.
 ///
 /// This is an POD interface class.
-class InetAddress : public muduo::copyable
+class InetAddress : public xihoo::copyable
 {
  public:
   /// Constructs an endpoint with given port number.
@@ -54,4 +54,4 @@ class InetAddress : public muduo::copyable
 
 }
 
-#endif  // MUDUO_NET_INETADDRESS_H
+#endif  // xihoo_NET_INETADDRESS_H

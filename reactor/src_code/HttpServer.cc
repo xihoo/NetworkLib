@@ -7,10 +7,10 @@
 
 #include <boost/bind.hpp>
 
-using namespace muduo;
-//using namespace muduo::net;
+using namespace xihoo;
+//using namespace xihoo::net;
 
-namespace muduo
+namespace xihoo
 {
 //class HttpResponse;
 //class HttpRequest;

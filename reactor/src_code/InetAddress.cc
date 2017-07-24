@@ -1,5 +1,5 @@
 // Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
+// http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -28,7 +28,7 @@
 //         in_addr_t       s_addr;     /* address in network byte order */
 //     };
 
-using namespace muduo;
+using namespace xihoo;
 
 static const in_addr_t kInaddrAny = INADDR_ANY;
 

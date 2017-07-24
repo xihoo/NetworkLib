@@ -1,14 +1,14 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (giantchen at gmail dot com)
 
-#ifndef MUDUO_BASE_COPYABLE_H
-#define MUDUO_BASE_COPYABLE_H
+#ifndef xihoo_BASE_COPYABLE_H
+#define xihoo_BASE_COPYABLE_H
 
-namespace muduo
+namespace xihoo
 {
 
 /// A tag class emphasises the objects are copyable.
@@ -20,5 +20,5 @@ class copyable
 
 };
 
-#endif  // MUDUO_BASE_COPYABLE_H
+#endif  // xihoo_BASE_COPYABLE_H
 

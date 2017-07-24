@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -18,7 +18,7 @@
 #include <poll.h>
 #include <sys/epoll.h>
 
-using namespace muduo;
+using namespace xihoo;
 
 // On Linux, the constants of poll(2) and epoll(4)
 // are expected to be the same.

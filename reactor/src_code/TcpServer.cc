@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -17,7 +17,7 @@
 
 #include <stdio.h>  // snprintf
 
-using namespace muduo;
+using namespace xihoo;
 
 TcpServer::TcpServer(EventLoop* loop, const InetAddress& listenAddr)
   : loop_(CHECK_NOTNULL(loop)),

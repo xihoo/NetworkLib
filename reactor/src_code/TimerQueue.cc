@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -18,7 +18,7 @@
 
 #include <sys/timerfd.h>
 
-namespace muduo
+namespace xihoo
 {
 namespace detail
 {
@@ -79,8 +79,8 @@ void resetTimerfd(int timerfd, Timestamp expiration)
 }
 }
 
-using namespace muduo;
-using namespace muduo::detail;
+using namespace xihoo;
+using namespace xihoo::detail;
 
 TimerQueue::TimerQueue(EventLoop* loop)
   : loop_(loop),

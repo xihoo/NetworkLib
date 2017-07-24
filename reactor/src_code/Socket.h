@@ -1,5 +1,5 @@
 // Copyright 2010, Shuo Chen.  All rights reserved.
-// http://code.google.com/p/muduo/
+// http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -8,12 +8,12 @@
 //
 // This is an internal header file, you should not include this.
 
-#ifndef MUDUO_NET_SOCKET_H
-#define MUDUO_NET_SOCKET_H
+#ifndef xihoo_NET_SOCKET_H
+#define xihoo_NET_SOCKET_H
 
 #include <boost/noncopyable.hpp>
 
-namespace muduo
+namespace xihoo
 {
 
 class InetAddress;
@@ -62,4 +62,4 @@ class Socket : boost::noncopyable
 };
 
 }
-#endif  // MUDUO_NET_SOCKET_H
+#endif  // xihoo_NET_SOCKET_H

@@ -1,17 +1,17 @@
-#ifndef MUDUO_NET_HTTP_HTTPCONTEXT_H
-#define MUDUO_NET_HTTP_HTTPCONTEXT_H
+#ifndef xihoo_NET_HTTP_HTTPCONTEXT_H
+#define xihoo_NET_HTTP_HTTPCONTEXT_H
 
 #include "datetime/copyable.h"
 
 
 #include "HttpRequest.h"
 
-namespace muduo
+namespace xihoo
 {
 
 class Buffer;
 
-class HttpContext : public muduo::copyable
+class HttpContext : public xihoo::copyable
 {
  public:
   enum HttpRequestParseState
@@ -58,4 +58,4 @@ class HttpContext : public muduo::copyable
 
 }
 
-#endif  // MUDUO_NET_HTTP_HTTPCONTEXT_H
+#endif  // xihoo_NET_HTTP_HTTPCONTEXT_H

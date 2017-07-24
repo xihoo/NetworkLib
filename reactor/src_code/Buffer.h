@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_BUFFER_H
-#define MUDUO_NET_BUFFER_H
+#ifndef xihoo_NET_BUFFER_H
+#define xihoo_NET_BUFFER_H
 
 #include "datetime/copyable.h"
 
@@ -17,7 +17,7 @@
 #include <assert.h>
 //#include <unistd.h>  // ssize_t
 
-namespace muduo
+namespace xihoo
 {
 
 /// A buffer class modeled after org.jboss.netty.buffer.ChannelBuffer
@@ -30,7 +30,7 @@ namespace muduo
 /// |                   |                  |                  |
 /// 0      <=      readerIndex   <=   writerIndex    <=     size
 /// @endcode
-class Buffer : public muduo::copyable
+class Buffer : public xihoo::copyable
 {
  public:
   static const size_t kCheapPrepend = 8;
@@ -203,4 +203,4 @@ const char* findCRLF() const
 
 }
 
-#endif  // MUDUO_NET_BUFFER_H
+#endif  // xihoo_NET_BUFFER_H

@@ -1,14 +1,14 @@
 CXXFLAGS = -O0 -g  -Wall -I ../.. -pthread
-LDFLAGS = -lpthread -lmuduo -L.
+LDFLAGS = -lpthread -lxihoo -L.
 BASE_SRC = ../../logging/Logging.cc ../../logging/LogStream.cc ../../thread/Thread.cc ../../datetime/Timestamp.cc
-MUDUO_SRC = $(notdir $(LIB_SRC) $(BASE_SRC))
-OBJS = $(patsubst %.cc,%.o,$(MUDUO_SRC))
+xihoo_SRC = $(notdir $(LIB_SRC) $(BASE_SRC))
+OBJS = $(patsubst %.cc,%.o,$(xihoo_SRC))
 
-libmuduo.a: $(BASE_SRC) $(LIB_SRC)
+libxihoo.a: $(BASE_SRC) $(LIB_SRC)
 	g++ $(CXXFLAGS) -c $^
 	ar rcs $@ $(OBJS)
 
-$(BINARIES): libmuduo.a
+$(BINARIES): libxihoo.a
 	g++ $(CXXFLAGS) -o $@ $(filter %.cc,$^) $(LDFLAGS)
 
 clean:

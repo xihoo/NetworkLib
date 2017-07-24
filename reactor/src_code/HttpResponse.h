@@ -6,7 +6,7 @@
 #include <map>
 #include "Buffer.h"
 using namespace std;
-class HttpResponse:public muduo::copyable
+class HttpResponse:public xihoo::copyable
 {
     public:
 	enum HttpStatusCode
@@ -31,7 +31,7 @@ class HttpResponse:public muduo::copyable
 	void setContentType(const string&contentType);
 	void addHeader(const string&key,const string&value);
 	void setBody(const string &body);
-	void appendToBuffer(muduo::Buffer* output,int cgi)const;
+	void appendToBuffer(xihoo::Buffer* output,int cgi)const;
 	void setCgi(int c);
 	int cgi() const;
     private:

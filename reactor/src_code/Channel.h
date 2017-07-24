@@ -1,19 +1,19 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_CHANNEL_H
-#define MUDUO_NET_CHANNEL_H
+#ifndef xihoo_NET_CHANNEL_H
+#define xihoo_NET_CHANNEL_H
 
 #include <boost/function.hpp>
 #include <boost/noncopyable.hpp>
 
 #include <datetime/Timestamp.h>
 
-namespace muduo
+namespace xihoo
 {
 
 class EventLoop;
@@ -82,4 +82,4 @@ class Channel : boost::noncopyable
 };
 
 }
-#endif  // MUDUO_NET_CHANNEL_H
+#endif  // xihoo_NET_CHANNEL_H

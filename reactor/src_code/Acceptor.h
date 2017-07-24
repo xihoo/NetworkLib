@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_ACCEPTOR_H
-#define MUDUO_NET_ACCEPTOR_H
+#ifndef xihoo_NET_ACCEPTOR_H
+#define xihoo_NET_ACCEPTOR_H
 
 #include <boost/function.hpp>
 #include <boost/noncopyable.hpp>
@@ -14,7 +14,7 @@
 #include "Channel.h"
 #include "Socket.h"
 
-namespace muduo
+namespace xihoo
 {
 
 class EventLoop;
@@ -49,4 +49,4 @@ class Acceptor : boost::noncopyable
 
 }
 
-#endif  // MUDUO_NET_ACCEPTOR_H
+#endif  // xihoo_NET_ACCEPTOR_H

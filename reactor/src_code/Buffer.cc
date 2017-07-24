@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -13,7 +13,7 @@
 #include <memory.h>
 #include <sys/uio.h>
 
-using namespace muduo;
+using namespace xihoo;
 const char Buffer::kCRLF[] = "\r\n";
 ssize_t Buffer::readFd(int fd, int* savedErrno)
 {

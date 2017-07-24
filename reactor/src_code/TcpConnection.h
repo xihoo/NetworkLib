@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_TCPCONNECTION_H
-#define MUDUO_NET_TCPCONNECTION_H
+#ifndef xihoo_NET_TCPCONNECTION_H
+#define xihoo_NET_TCPCONNECTION_H
 
 #include "Buffer.h"
 #include "Callbacks.h"
@@ -18,7 +18,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 
-namespace muduo
+namespace xihoo
 {
 
 class Channel;
@@ -116,4 +116,4 @@ typedef boost::shared_ptr<TcpConnection> TcpConnectionPtr;
 
 }
 
-#endif  // MUDUO_NET_TCPCONNECTION_H
+#endif  // xihoo_NET_TCPCONNECTION_H

@@ -1,12 +1,12 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_TCPSERVER_H
-#define MUDUO_NET_TCPSERVER_H
+#ifndef xihoo_NET_TCPSERVER_H
+#define xihoo_NET_TCPSERVER_H
 
 #include "Callbacks.h"
 #include "TcpConnection.h"
@@ -15,7 +15,7 @@
 #include <boost/noncopyable.hpp>
 #include <boost/scoped_ptr.hpp>
 
-namespace muduo
+namespace xihoo
 {
 
 class Acceptor;
@@ -86,4 +86,4 @@ class TcpServer : boost::noncopyable
 
 }
 
-#endif  // MUDUO_NET_TCPSERVER_H
+#endif  // xihoo_NET_TCPSERVER_H

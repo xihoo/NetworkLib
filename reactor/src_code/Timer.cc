@@ -1,4 +1,4 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
@@ -7,7 +7,7 @@
 
 #include "Timer.h"
 
-using namespace muduo;
+using namespace xihoo;
 
 AtomicInt64 Timer::s_numCreated_;
 

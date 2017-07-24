@@ -1,19 +1,19 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_NET_TCPCLIENT_H
-#define MUDUO_NET_TCPCLIENT_H
+#ifndef xihoo_NET_TCPCLIENT_H
+#define xihoo_NET_TCPCLIENT_H
 
 #include <boost/noncopyable.hpp>
 
 #include "thread/Mutex.h"
 #include "TcpConnection.h"
 
-namespace muduo
+namespace xihoo
 {
 
 class Connector;
@@ -75,4 +75,4 @@ class TcpClient : boost::noncopyable
 
 }
 
-#endif  // MUDUO_NET_TCPCLIENT_H
+#endif  // xihoo_NET_TCPCLIENT_H

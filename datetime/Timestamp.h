@@ -1,19 +1,19 @@
-// excerpts from http://code.google.com/p/muduo/
+// excerpts from http://code.google.com/p/xihoo/
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the License file.
 //
 // Author: Shuo Chen (giantchen at gmail dot com)
 
-#ifndef MUDUO_BASE_TIMESTAMP_H
-#define MUDUO_BASE_TIMESTAMP_H
+#ifndef xihoo_BASE_TIMESTAMP_H
+#define xihoo_BASE_TIMESTAMP_H
 
 #include "copyable.h"
 
 #include <stdint.h>
 #include <string>
 
-namespace muduo
+namespace xihoo
 {
 
 ///
@@ -23,7 +23,7 @@ namespace muduo
 /// This class is immutable.
 /// It's recommended to pass it by value, since it's passed in register on x64.
 ///
-class Timestamp : public muduo::copyable
+class Timestamp : public xihoo::copyable
                // public boost::less_than_comparable<Timestamp>,
                // public boost::equality_comparable<Timestamp>
 {
@@ -105,5 +105,5 @@ inline Timestamp addTime(Timestamp timestamp, double seconds)
 }
 
 }
-#endif  // MUDUO_BASE_TIMESTAMP_H
+#endif  // xihoo_BASE_TIMESTAMP_H
 
